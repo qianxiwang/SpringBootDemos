@@ -6,6 +6,6 @@
     <title>Title</title>
 </head>
 <body>
-this is index jsp!
+您已成功访问到主界面！
 </body>
 </html>

@@ -8,7 +8,6 @@ import java.io.Serializable;
 @Table(name = "user")
 public class User implements Serializable {
 
-
     @Id
     @GeneratedValue
     @Column(name = "id")

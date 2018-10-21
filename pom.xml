@@ -6,6 +6,7 @@
     <groupId>com.demos</groupId>
     <artifactId>springbootdemos</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <!--这里是更改打包的方式的，分别是jar和war两种方式-->
     <packaging>jar</packaging>
 
     <name>springbootdemos</name>
@@ -52,10 +53,32 @@
             <artifactId>jstl</artifactId>
         </dependency>
 
+        <!-- 支持spring data jpa -->
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+        </dependency>
+
+        <!-- 支持mysql -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.40</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+
+        <!-- 引入Druid连接池依赖-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.1.10</version>
+        </dependency>
+
+
     </dependencies>
-
-
-
 
 
     <build>

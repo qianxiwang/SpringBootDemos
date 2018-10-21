@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * Springboot集成spring data jpa进行crud操作
+ */
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -28,7 +31,10 @@ public class UserController {
     }
 
     /**
-     * 添加、添加用户的方法
+     * 添加、更新用户的方法
+     * <p>
+     * http://127.0.0.1:8080/user/save?name=admin&age=22&address=jinan
+     * 添加
      *
      * @param user
      * @return
@@ -40,6 +46,8 @@ public class UserController {
 
     /**
      * 删除用户信息，然后返回剩余用户的信息
+     * <p>
+     * http://127.0.0.1:8080/user/delete?id=2
      *
      * @param id
      * @return

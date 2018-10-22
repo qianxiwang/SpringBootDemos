@@ -94,48 +94,48 @@ public class MailSender {
         prop.put("mail.password", properties.getValue("mail.from.smtp.pwd"));
 
         //构建授权信息，用于进行SMTP进行身份验证
-        Authenticator authenticator = new Authenticator() {
-            protected PasswordAuthentication getPasswordAuthentication() {
-                //用户名，密码
-                String userName = prop.getProperty("mail.user");
-                String password = prop.getProperty("mail.password");
-                return new PasswordAuthentication(userName, password);
-            }
-        };
-
-        // 使用环境属性和授权信息，创建邮件会话
-        Session mailSession = Session.getInstance(prop, authenticator);
-        // 创建邮件消息
-        MimeMessage message = new MimeMessage(mailSession);
-        // 设置发件人
-        String nickName = MimeUtility.encodeText(properties.getValue("mail.from.nickname"));
-        InternetAddress form = new InternetAddress(nickName + " <" + prop.getProperty("mail.user") + ">");
-        message.setFrom(form);
-
-        // 设置邮件标题
-        message.setSubject(mailEntity.getTitle());
-        //html发送邮件
-        if (mailEntity.getContentType().equals(MailContentTypeEnum.HTML.getValue())) {
-            // 设置邮件的内容体
-            message.setContent(mailEntity.getContent(), mailEntity.getContentType());
-        }
-        //文本发送邮件
-        else if (mailEntity.getContentType().equals(MailContentTypeEnum.TEXT.getValue())) {
-            message.setText(mailEntity.getContent());
-        }
-        //发送邮箱地址
-        List<String> targets = mailEntity.getList();
-        for (int i = 0; i < targets.size(); i++) {
-            try {
-                // 设置收件人的邮箱
-                InternetAddress to = new InternetAddress(targets.get(i));
-                message.setRecipient(Message.RecipientType.TO, to);
-                // 最后当然就是发送邮件啦
-                Transport.send(message);
-            } catch (Exception e) {
-                continue;
-            }
-
-        }
+//        Authenticator authenticator = new Authenticator() {
+//            protected PasswordAuthentication getPasswordAuthentication() {
+//                //用户名，密码
+//                String userName = prop.getProperty("mail.user");
+//                String password = prop.getProperty("mail.password");
+//                return new PasswordAuthentication(userName, password);
+//            }
+//        };
+//
+//        // 使用环境属性和授权信息，创建邮件会话
+//        Session mailSession = Session.getInstance(prop, authenticator);
+//        // 创建邮件消息
+//        MimeMessage message = new MimeMessage(mailSession);
+//        // 设置发件人
+//        String nickName = MimeUtility.encodeText(properties.getValue("mail.from.nickname"));
+//        InternetAddress form = new InternetAddress(nickName + " <" + prop.getProperty("mail.user") + ">");
+//        message.setFrom(form);
+//
+//        // 设置邮件标题
+//        message.setSubject(mailEntity.getTitle());
+//        //html发送邮件
+//        if (mailEntity.getContentType().equals(MailContentTypeEnum.HTML.getValue())) {
+//            // 设置邮件的内容体
+//            message.setContent(mailEntity.getContent(), mailEntity.getContentType());
+//        }
+//        //文本发送邮件
+//        else if (mailEntity.getContentType().equals(MailContentTypeEnum.TEXT.getValue())) {
+//            message.setText(mailEntity.getContent());
+//        }
+//        //发送邮箱地址
+//        List<String> targets = mailEntity.getList();
+//        for (int i = 0; i < targets.size(); i++) {
+//            try {
+//                // 设置收件人的邮箱
+//                InternetAddress to = new InternetAddress(targets.get(i));
+//                message.setRecipient(Message.RecipientType.TO, to);
+//                // 最后当然就是发送邮件啦
+//                Transport.send(message);
+//            } catch (Exception e) {
+//                continue;
+//            }
+//
+//        }
     }
 }

@@ -57,4 +57,25 @@ public class UserController {
         userJpa.deleteById(id);
         return userJpa.findAll();
     }
+
+    /**
+     * 查询年龄大于20岁的用户
+     *
+     * @return
+     */
+    @RequestMapping("/age")
+    public List<User> ages() {
+        return userJpa.nativeQuery(20);
+    }
+
+    /**
+     * 根据用户名、密码删除一条数据
+     *
+     * @return
+     */
+    @RequestMapping("/deleteWhere")
+    public String deleteWhere() {
+        userJpa.deleteQuery("a", "shanghai");
+        return "自定义SQL删除数据成功";
+    }
 }

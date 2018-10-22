@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 public class SessionConfiguration  extends WebMvcConfigurerAdapter {
 
 
-    public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**");
-    }
+//    public void addInterceptors(InterceptorRegistry registry){
+//        registry.addInterceptor(new SessionInterceptor()).addPathPatterns("/**");
+//    }
 }

@@ -11,7 +11,7 @@ import java.util.List;
 
 
 //SpringDataJPA提供的复杂查询接口
-public interface UserJpa extends JpaRepository<User, Long>, JpaSpecificationExecutor<User>, Serializable {
+public interface UserJpa extends JpaRepository<User, Long>,  Serializable {
 
     @Query(value = "select * from user where age >?", nativeQuery = true)
     public List<User> nativeQuery(int age);

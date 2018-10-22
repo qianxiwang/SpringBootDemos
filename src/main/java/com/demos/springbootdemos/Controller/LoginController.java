@@ -17,15 +17,15 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class LoginController {
 
-    @Autowired
-    private UserJpa userJpa;
-
-    @RequestMapping("/login")
-    public String login(User userEntity, HttpServletRequest request) {
-//        登陆成功
-        boolean flag = true;
-
-        String result = "登陆成功";
+//    @Autowired
+//    private UserJpa userJpa;
+//
+//    @RequestMapping("/login")
+//    public String login(User userEntity, HttpServletRequest request) {
+////        登陆成功
+//        boolean flag = true;
+//
+//        String result = "登陆成功";
 //        根据用户名查询用户是否存在
 //        User user = userJpa.findOne(new Specification<User>() {
 //            @Override
@@ -46,24 +46,24 @@ public class LoginController {
 //        }
 
 //        登陆成功
-        if (flag) {
+//        if (flag) {
 //            将用户写入session
 //            request.getSession().setAttribute("session_user", user);
-        }
-        return result;
-    }
-
-
-    /**
-     * 初始化登陆页面
-     */
-    @RequestMapping(value = "/login_view", method = RequestMethod.GET)
-    public String login_view() {
-        return "login";
-    }
-
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
-    public String inde(){
-        return "index";
-    }
+//        }
+//        return result;
+//    }
+//
+//
+//    /**
+//     * 初始化登陆页面
+//     */
+//    @RequestMapping(value = "/login_view", method = RequestMethod.GET)
+//    public String login_view() {
+//        return "login";
+//    }
+//
+//    @RequestMapping(value = "/index",method = RequestMethod.GET)
+//    public String index(){
+//        return "index";
+//    }
 }

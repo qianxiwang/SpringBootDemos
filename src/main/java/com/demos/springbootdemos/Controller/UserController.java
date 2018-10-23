@@ -2,6 +2,7 @@ package com.demos.springbootdemos.Controller;
 
 import com.demos.springbootdemos.Domain.User;
 import com.demos.springbootdemos.Repository.UserJpa;
+import com.demos.springbootdemos.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,6 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private UserJpa userJpa;
@@ -78,5 +82,11 @@ public class UserController {
     public String deleteWhere() {
         userJpa.deleteQuery("a", "shanghai");
         return "自定义SQL删除数据成功";
+    }
+
+
+    @RequestMapping("/lists")
+    public List<User> list(){
+        return userService.getList();
     }
 }
